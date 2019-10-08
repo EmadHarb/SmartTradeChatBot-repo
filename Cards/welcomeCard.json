@@ -39,7 +39,7 @@
     },
     {
       "type": "Action.OpenUrl",
-      "title": "Learn how to deploy",
+      "title": "Learn how to deploy from Emad",
       "url": "https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0"
     }
   ]
