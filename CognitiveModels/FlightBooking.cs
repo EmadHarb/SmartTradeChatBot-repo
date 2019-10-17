@@ -19,6 +19,7 @@ namespace Microsoft.BotBuilderSamples
             BookFlight,
             Cancel,
             GetWeather,
+            getCustomer,
             None
         };
         public Dictionary<Intent, IntentScore> Intents;
