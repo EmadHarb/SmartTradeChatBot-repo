@@ -1,0 +1,508 @@
+{
+  "luis_schema_version": "4.0.0",
+  "versionId": "0.1",
+  "name": "SmartTrade",
+  "desc": "Smart Trade System",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "getCustomer"
+    },
+    {
+      "name": "getProduct"
+    },
+    {
+      "name": "getProductByCategory"
+    },
+    {
+      "name": "getProductByModel"
+    },
+    {
+      "name": "getProductByNumber"
+    },
+    {
+      "name": "getSalesByCustomer"
+    },
+    {
+      "name": "getSalesByProduct"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Category",
+      "roles": []
+    },
+    {
+      "name": "Customer",
+      "roles": [
+        "sales"
+      ]
+    },
+    {
+      "name": "Model",
+      "roles": []
+    },
+    {
+      "name": "Product",
+      "roles": []
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "patternAnyEntities": [
+    {
+      "name": "ProductNumber",
+      "roles": [],
+      "explicitList": []
+    }
+  ],
+  "regex_entities": [],
+  "prebuiltEntities": [
+    {
+      "name": "datetimeV2",
+      "roles": []
+    }
+  ],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [
+    {
+      "pattern": "product {Product} {Product}",
+      "intent": "getProduct"
+    },
+    {
+      "pattern": "model {Model}",
+      "intent": "getProductByModel"
+    },
+    {
+      "pattern": "{Customer} {Customer} sales",
+      "intent": "getSalesByCustomer"
+    },
+    {
+      "pattern": "product number {ProductNumber}",
+      "intent": "getProductByNumber"
+    },
+    {
+      "pattern": "{Customer} sales",
+      "intent": "getSalesByCustomer"
+    },
+    {
+      "pattern": "category {Category} {Category}",
+      "intent": "getProductByCategory"
+    },
+    {
+      "pattern": "model {Model} {Model}",
+      "intent": "getProductByModel"
+    },
+    {
+      "pattern": "category {Category}",
+      "intent": "getProductByCategory"
+    },
+    {
+      "pattern": "product {Product}",
+      "intent": "getProduct"
+    }
+  ],
+  "utterances": [
+    {
+      "text": "ben dunn details",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 2
+        },
+        {
+          "entity": "Customer",
+          "startPos": 4,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "ben millar info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 2
+        },
+        {
+          "entity": "Customer",
+          "startPos": 4,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "carreras info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "category road frames",
+      "intent": "getProductByCategory",
+      "entities": [
+        {
+          "entity": "Category",
+          "startPos": 9,
+          "endPos": 12
+        },
+        {
+          "entity": "Category",
+          "startPos": 14,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "category socks",
+      "intent": "getProductByCategory",
+      "entities": [
+        {
+          "entity": "Category",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "david info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "david sales",
+      "intent": "getSalesByCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "donna info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "emad harb info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 3
+        },
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "emad info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "emad sales",
+      "intent": "getSalesByCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "get john caprio info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 4,
+          "endPos": 7
+        },
+        {
+          "entity": "Customer",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "hodgson info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "john beaver info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 3
+        },
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "john doawn sales",
+      "intent": "getSalesByCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 3
+        },
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "john info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 0,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "model mountain bike",
+      "intent": "getProductByModel",
+      "entities": [
+        {
+          "entity": "Model",
+          "startPos": 6,
+          "endPos": 13
+        },
+        {
+          "entity": "Model",
+          "startPos": 15,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "model sport",
+      "intent": "getProductByModel",
+      "entities": [
+        {
+          "entity": "Model",
+          "startPos": 6,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "product frame black",
+      "intent": "getProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 12
+        },
+        {
+          "entity": "Product",
+          "startPos": 14,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "product helmets",
+      "intent": "getProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "product helmets sales",
+      "intent": "getSalesByProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "product moantian",
+      "intent": "getProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "product mountain bike",
+      "intent": "getProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 15
+        },
+        {
+          "entity": "Product",
+          "startPos": 17,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "product number dae343",
+      "intent": "getProductByNumber",
+      "entities": []
+    },
+    {
+      "text": "product socks",
+      "intent": "getProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "product socks sales",
+      "intent": "getSalesByProduct",
+      "entities": [
+        {
+          "entity": "Product",
+          "startPos": 8,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "show ben dunn details",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 7
+        },
+        {
+          "entity": "Customer",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "show david info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "show frank details",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "show frank info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "show john millar info",
+      "intent": "getCustomer",
+      "entities": [
+        {
+          "entity": "Customer",
+          "startPos": 5,
+          "endPos": 8
+        },
+        {
+          "entity": "Customer",
+          "startPos": 10,
+          "endPos": 15
+        }
+      ]
+    }
+  ],
+  "settings": []
+}

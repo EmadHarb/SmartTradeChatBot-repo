@@ -32,10 +32,10 @@ namespace Microsoft.BotBuilderSamples
             services.AddSingleton<ConversationState>();
 
             // Register LUIS recognizer
-            services.AddSingleton<FlightBookingRecognizer>();
+            services.AddSingleton<SmartTradeRecognizer>();
 
             // Register the BookingDialog.
-            services.AddSingleton<BookingDialog>();
+            services.AddSingleton<ShowOrdersDialog>();
 
             // The MainDialog that will be run by the bot.
             services.AddSingleton<MainDialog>();

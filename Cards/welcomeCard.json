@@ -5,7 +5,7 @@
   "body": [
     {
       "type": "Image",
-      "url": "Logo",
+      "url": "https://www.tilewarehouse.co.nz/media/1837390/st_colour.png?width=500&height=136.02823227462304",
       "size": "stretch"
     },
     {
@@ -13,7 +13,7 @@
       "spacing": "medium",
       "size": "default",
       "weight": "bolder",
-      "text": "Welcome to Bot Framework!",
+      "text": "Welcome to Smart Trade Website!",
       "wrap": true,
       "maxLines": 0
     },
@@ -21,26 +21,24 @@
       "type": "TextBlock",
       "size": "default",
       "isSubtle": "yes",
-      "text": "Now that you have successfully run your bot, follow the links in this Adaptive Card to expand your knowledge of Bot Framework.",
+      "text": "How can I help you? Please, type your question or choose from the sample questions below.",
       "wrap": true,
       "maxLines": 0
     }
   ],
   "actions": [
     {
-      "type": "Action.OpenUrl",
-      "title": "Get an overview",
-      "url": "https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0"
+      "type": "Action.Submit",
+      "title": "Show my Orders Total"
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Show my Last Order"
     },
     {
       "type": "Action.OpenUrl",
-      "title": "Ask Emad a question",
-      "url": "https://stackoverflow.com/questions/tagged/botframework"
-    },
-    {
-      "type": "Action.OpenUrl",
-      "title": "Learn how to deploy from Emad",
-      "url": "http://localhost:62449/Customers"
+      "title": "Show me the list of Products",
+      "url": "http://localhost:62449/Products"
     }
   ]
 }
