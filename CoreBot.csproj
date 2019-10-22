@@ -25,6 +25,8 @@
   <ItemGroup>
     <Reference Include="NLQueryApp">
       <HintPath>..\NLQuerySolution\NLQueryApp\bin\NLQueryApp.dll</HintPath>
+      <EmbedInteropTypes></EmbedInteropTypes>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 
