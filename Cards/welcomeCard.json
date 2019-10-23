@@ -37,7 +37,7 @@
     },
     {
       "type": "Action.OpenUrl",
-      "title": "Show me the list of Products",
+      "title": "Show me no 1",
       "url": "http://localhost:62449/Products"
     }
   ]
