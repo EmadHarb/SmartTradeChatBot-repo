@@ -53,7 +53,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
             var customers = client.GetAsync("api/SmartTradeApi/GetTotalOrdersByCustomer?customerId=29847").Result;
             if (customers.IsSuccessStatusCode)
-            {
+            { 
                 string responseString = customers.Content.ReadAsStringAsync().Result;
             }
 
@@ -84,7 +84,8 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         private static HttpClient CallAPI()
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:62449");
+            client.BaseAddress = new Uri("http://smarttradewebapp.azurewebsites.net/");
+            //client.BaseAddress = new Uri("http://localhost:62449");
             client.DefaultRequestHeaders.Accept.Clear();
             return client;
         }

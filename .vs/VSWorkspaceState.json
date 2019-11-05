@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "\\Cards",
+    "\\CognitiveModels",
+    "\\Controllers",
+    "\\Dialogs"
   ],
   "PreviewInSolutionExplorer": false
 }
