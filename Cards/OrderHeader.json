@@ -9,6 +9,10 @@
     },
     {
       "type": "TextBlock",
+      "text": "Quantity:"
+    },
+    {
+      "type": "TextBlock",
       "text": "Sub Total: "
     }
   ]
