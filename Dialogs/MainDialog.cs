@@ -143,18 +143,18 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         {
             // If the child dialog ("ShowOrdersDialog") was cancelled, the user failed to confirm or if the intent wasn't BookFlight
             // the Result here will be null.
-            if (stepContext.Result is BookingDetails result)
-            {
-                // Now we have all the booking details call the booking service.
+            //if (stepContext.Result is BookingDetails result)
+            //{
+            //    // Now we have all the booking details call the booking service.
 
-                // If the call to the booking service was successful tell the user.
+            //    // If the call to the booking service was successful tell the user.
 
-                var timeProperty = new TimexProperty(result.TravelDate);
-                var travelDateMsg = timeProperty.ToNaturalLanguage(DateTime.Now);
-                var messageText = $"I have you booked to {result.Destination} from {result.Origin} on {travelDateMsg}";
-                var message = MessageFactory.Text(messageText, messageText, InputHints.IgnoringInput);
-                await stepContext.Context.SendActivityAsync(message, cancellationToken);
-            }
+            //    var timeProperty = new TimexProperty(result.TravelDate);
+            //    var travelDateMsg = timeProperty.ToNaturalLanguage(DateTime.Now);
+            //    var messageText = $"I have you booked to {result.Destination} from {result.Origin} on {travelDateMsg}";
+            //    var message = MessageFactory.Text(messageText, messageText, InputHints.IgnoringInput);
+            //    await stepContext.Context.SendActivityAsync(message, cancellationToken);
+            //}
 
             // Restart the main dialog with a different message the second time around
             var promptMessage = "What else can I do for you?";
