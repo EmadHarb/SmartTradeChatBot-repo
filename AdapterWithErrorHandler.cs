@@ -12,7 +12,7 @@ namespace Microsoft.BotBuilderSamples
 {
     public class AdapterWithErrorHandler : BotFrameworkHttpAdapter
     {
-        private const string ErrorMsgText = "Sorry, it looks like something went wrong.";
+        private const string ErrorMsgText = "Sorry, it looks like something went wrong while connecting to LUIS.";
         
         public AdapterWithErrorHandler(IConfiguration configuration, ILogger<BotFrameworkHttpAdapter> logger, ConversationState conversationState = null)
             : base(configuration, logger)
