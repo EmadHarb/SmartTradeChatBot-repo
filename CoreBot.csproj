@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Cards\welcomeCard.json" />
+    <EmbeddedResource Include="Cards\OrderHeader.json" />
   </ItemGroup>
 
   <ItemGroup>
