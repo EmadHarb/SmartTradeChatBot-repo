@@ -26,7 +26,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
                 UserStepAsync,
-                GetOrdersStepAsync,
+                //GetOrdersStepAsync,
                 ShowCardStepAsync,
             }));
 
@@ -76,7 +76,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             reply.Attachments.Add(Cards.CreateAdaptiveCardAttachment(Path.Combine(".", "Cards", "OrderHeader.json")));
 
             // Send the card(s) to the user as an attachment to the activity
-            //await stepContext.Context.SendActivityAsync(reply, cancellationToken);
+            await stepContext.Context.SendActivityAsync(reply, cancellationToken);
 
             return await stepContext.EndDialogAsync();
         }
