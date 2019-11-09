@@ -23,7 +23,7 @@ namespace Microsoft.BotBuilderSamples
                 logger.LogError($"Exception caught : {exception.Message}");
 
                 // Send a catch-all apology to the user.
-                var errorMessage = MessageFactory.Text(ErrorMsgText, exception.Message, InputHints.ExpectingInput);
+                var errorMessage = MessageFactory.Text(exception.Message, ErrorMsgText, InputHints.ExpectingInput);
                 await turnContext.SendActivityAsync(errorMessage);
 
                 if (conversationState != null)
