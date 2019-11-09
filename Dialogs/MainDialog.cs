@@ -99,7 +99,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     //};
 
                     // Run the ShowOrdersDialog giving it whatever details we have from the LUIS call, it will fill out the remainder.
-                    return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), salesOrderHeader, cancellationToken);
+                    return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), salesOrderHeader, default);
 
                 default:
                     // Catch all for unhandled intents
