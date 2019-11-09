@@ -25,9 +25,9 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
-                //UserStepAsync,
-                //GetOrdersStepAsync,
-                //ShowCardStepAsync,
+                UserStepAsync,
+                GetOrdersStepAsync,
+                ShowCardStepAsync,
             }));
 
             // The initial child Dialog to run.
