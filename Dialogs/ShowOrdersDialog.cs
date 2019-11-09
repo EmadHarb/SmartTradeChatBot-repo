@@ -27,7 +27,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             {
                 UserStepAsync,
                 //GetOrdersStepAsync,
-                ShowCardStepAsync,
+                //ShowCardStepAsync,
             }));
 
             // The initial child Dialog to run.
