@@ -37,7 +37,7 @@
     },
     {
       "type": "Action.OpenUrl",
-      "title": "This is the azure version 11",
+      "title": "This is the azure version 12",
       "url": "http://localhost:62449/Products"
     }
   ]
