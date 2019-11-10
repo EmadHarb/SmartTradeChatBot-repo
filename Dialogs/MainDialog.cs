@@ -72,42 +72,42 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
             // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
             var luisResult = await _luisRecognizer.RecognizeAsync<SmartTrade>(stepContext.Context, cancellationToken);
-            //switch (luisResult.TopIntent().intent)
-            //{
-            //    case SmartTrade.Intent.getCustomer:
+            switch (luisResult.TopIntent().intent)
+            {
+                case SmartTrade.Intent.getCustomer:
 
-            //        //var response = client.GetAsync("api/SmartTradeApi/GetCustomer?customerId=29847").Result;
-            //        //if (response.IsSuccessStatusCode)
-            //        //{
-            //        //    string responseString = response.Content.ReadAsStringAsync().Result;
-            //        //}
+                    //var response = client.GetAsync("api/SmartTradeApi/GetCustomer?customerId=29847").Result;
+                    //if (response.IsSuccessStatusCode)
+                    //{
+                    //    string responseString = response.Content.ReadAsStringAsync().Result;
+                    //}
 
-            //        //IEnumerable<Customer> customer = response.Content.ReadAsAsync<IEnumerable<Customer>>().Result;
+                    //IEnumerable<Customer> customer = response.Content.ReadAsAsync<IEnumerable<Customer>>().Result;
 
-            //        var customer = new Customer();
+                    var customer = new Customer();
 
-            //        return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), customer, cancellationToken);
+                    return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), customer, cancellationToken);
 
-            //    case SmartTrade.Intent.getSalesByCustomer:
-            //        //await ShowWarningForUnsupportedCities(stepContext.Context, luisResult, cancellationToken);
+                case SmartTrade.Intent.getSalesByCustomer:
+                    //await ShowWarningForUnsupportedCities(stepContext.Context, luisResult, cancellationToken);
 
-            //        // Initialize BookingDetails with any entities we may have found in the response.
-            //        var salesOrderHeader = new SalesOrderHeader();
-            //        //{
-            //        //    // Get destination and origin from the composite entities arrays.
-            //        //    CustomerID = luisResult.Entities.sales;
-            //        //};
+                    // Initialize BookingDetails with any entities we may have found in the response.
+                    var salesOrderHeader = new SalesOrderHeader();
+                    //{
+                    //    // Get destination and origin from the composite entities arrays.
+                    //    CustomerID = luisResult.Entities.sales;
+                    //};
 
-            //        // Run the ShowOrdersDialog giving it whatever details we have from the LUIS call, it will fill out the remainder.
-            //        return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), salesOrderHeader, cancellationToken);
+                    // Run the ShowOrdersDialog giving it whatever details we have from the LUIS call, it will fill out the remainder.
+                    return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), salesOrderHeader, cancellationToken);
 
-            //    default:
-            //        // Catch all for unhandled intents
-            //        var didntUnderstandMessageText = $"Sorry, I didn't get that. Please try asking in a different way (intent was {luisResult.TopIntent().intent})";
-            //        var didntUnderstandMessage = MessageFactory.Text(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
-            //        await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
-            //        break;
-            //}
+                default:
+                    // Catch all for unhandled intents
+                    var didntUnderstandMessageText = $"Sorry, I didn't get that. Please try asking in a different way (intent was {luisResult.TopIntent().intent})";
+                    var didntUnderstandMessage = MessageFactory.Text(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
+                    break;
+            }
 
             return await stepContext.NextAsync(null, cancellationToken);
         }
