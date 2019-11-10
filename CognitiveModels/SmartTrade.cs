@@ -27,7 +27,8 @@ namespace CognitiveModels
             getProductByNumber, 
             getSalesByCustomer, 
             getSalesByProduct, 
-            None
+            None, 
+            Cancel
         };
         //[JsonProperty("intents")]
         public Dictionary<Intent, IntentScore> Intents;
