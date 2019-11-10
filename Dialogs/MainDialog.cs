@@ -71,7 +71,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             }
 
             // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
-            var luisResult = await _luisRecognizer.RecognizeAsync<SearchOrders>(stepContext.Context, cancellationToken);
+            var luisResult = await _luisRecognizer.RecognizeAsync<SmartTrade>(stepContext.Context, cancellationToken);
             //switch (luisResult.TopIntent().intent)
             //{
             //    case SmartTrade.Intent.getCustomer:
