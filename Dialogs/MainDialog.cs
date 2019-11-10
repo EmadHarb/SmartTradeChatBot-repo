@@ -67,7 +67,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             if (!_luisRecognizer.IsConfigured)
             {
                 // LUIS is not configured, we just run the ShowOrdersDialog path with an empty BookingDetailsInstance.
-                return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), new BookingDetails(), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(ShowOrdersDialog), cancellationToken);
             }
 
             // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
@@ -115,29 +115,29 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         // Shows a warning if the requested From or To cities are recognized as entities but they are not in the Airport entity list.
         // In some cases LUIS will recognize the From and To composite entities as a valid cities but the From and To Airport values
         // will be empty if those entity values can't be mapped to a canonical item in the Airport.
-        private static async Task ShowWarningForUnsupportedCities(ITurnContext context, FlightBooking luisResult, CancellationToken cancellationToken)
-        {
-            var unsupportedCities = new List<string>();
+        //private static async Task ShowWarningForUnsupportedCities(ITurnContext context, FlightBooking luisResult, CancellationToken cancellationToken)
+        //{
+        //    var unsupportedCities = new List<string>();
 
-            var fromEntities = luisResult.FromEntities;
-            if (!string.IsNullOrEmpty(fromEntities.From) && string.IsNullOrEmpty(fromEntities.Airport))
-            {
-                unsupportedCities.Add(fromEntities.From);
-            }
+        //    var fromEntities = luisResult.FromEntities;
+        //    if (!string.IsNullOrEmpty(fromEntities.From) && string.IsNullOrEmpty(fromEntities.Airport))
+        //    {
+        //        unsupportedCities.Add(fromEntities.From);
+        //    }
 
-            var toEntities = luisResult.ToEntities;
-            if (!string.IsNullOrEmpty(toEntities.To) && string.IsNullOrEmpty(toEntities.Airport))
-            {
-                unsupportedCities.Add(toEntities.To);
-            }
+        //    var toEntities = luisResult.ToEntities;
+        //    if (!string.IsNullOrEmpty(toEntities.To) && string.IsNullOrEmpty(toEntities.Airport))
+        //    {
+        //        unsupportedCities.Add(toEntities.To);
+        //    }
 
-            if (unsupportedCities.Any())
-            {
-                var messageText = $"Sorry but the following airports are not supported: {string.Join(',', unsupportedCities)}";
-                var message = MessageFactory.Text(messageText, messageText, InputHints.IgnoringInput);
-                await context.SendActivityAsync(message, cancellationToken);
-            }
-        }
+        //    if (unsupportedCities.Any())
+        //    {
+        //        var messageText = $"Sorry but the following airports are not supported: {string.Join(',', unsupportedCities)}";
+        //        var message = MessageFactory.Text(messageText, messageText, InputHints.IgnoringInput);
+        //        await context.SendActivityAsync(message, cancellationToken);
+        //    }
+        //}
 
         private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
