@@ -17,7 +17,7 @@ namespace Microsoft.BotBuilderSamples
         public string AlteredText;
         public enum Intent {
             BookFlight,
-            Cancel,
+            CancelEH,
             GetWeather,
             getCustomer,
             None
