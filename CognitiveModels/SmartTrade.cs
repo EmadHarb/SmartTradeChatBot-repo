@@ -13,10 +13,10 @@ namespace CognitiveModels
 {
     public partial class SmartTrade: IRecognizerConvert
     {
-        //[JsonProperty("text")]
+        [JsonProperty("text")]
         public string Text;
 
-        //[JsonProperty("alteredText")]
+        [JsonProperty("alteredText")]
         public string AlteredText;
 
         public enum Intent {
@@ -30,7 +30,7 @@ namespace CognitiveModels
             None, 
             Cancel
         };
-        //[JsonProperty("intents")]
+        [JsonProperty("intents")]
         public Dictionary<Intent, IntentScore> Intents;
 
         public class _Entities
@@ -62,10 +62,10 @@ namespace CognitiveModels
                 public InstanceData[] ProductNumber;
                 public InstanceData[] datetime;
             }
-            //[JsonProperty("$instance")]
+            [JsonProperty("$instance")]
             public _Instance _instance;
         }
-        //[JsonProperty("entities")]
+        [JsonProperty("entities")]
         public _Entities Entities;
 
         [JsonExtensionData(ReadData = true, WriteData = true)]
