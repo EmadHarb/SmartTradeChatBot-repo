@@ -37,7 +37,7 @@
     },
     {
       "type": "Action.OpenUrl",
-      "title": "This is the azure version 16",
+      "title": "This is the azure version 17",
       "url": "http://localhost:62449/Products"
     }
   ]
