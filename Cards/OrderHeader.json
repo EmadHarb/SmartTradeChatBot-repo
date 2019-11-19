@@ -5,10 +5,6 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Order Date:"
-    },
-    {
-      "type": "TextBlock",
       "text": "Quantity:"
     },
     {
