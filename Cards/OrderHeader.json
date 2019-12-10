@@ -5,11 +5,11 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Quantity:"
+      "text": "Quantity: {orders.CustomerID}"
     },
     {
       "type": "TextBlock",
-      "text": "Sub Total: "
+      "text": "Sub Total: {orders.SubTotal}"
     }
   ]
 }

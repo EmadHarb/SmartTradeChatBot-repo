@@ -51,7 +51,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         {
             HttpClient client = CallAPI();
 
-            var customers = client.GetAsync("api/SmartTradeApi/GetTotalOrdersByCustomer?customerId=29847").Result;
+            var customers = client.GetAsync("api/SmartTradeApi/GetTotalOrdersByCustomer?customerId=30089").Result;
             if (customers.IsSuccessStatusCode)
             { 
                 string responseString = customers.Content.ReadAsStringAsync().Result;

@@ -37,8 +37,8 @@
     },
     {
       "type": "Action.OpenUrl",
-      "title": "Hosted in Azure",
-      "url": "http://localhost:62449/Products"
+      "title": "Show all products",
+      "url": "http://smarttradewebapp.azurewebsites.net/Products"
     }
   ]
 }
