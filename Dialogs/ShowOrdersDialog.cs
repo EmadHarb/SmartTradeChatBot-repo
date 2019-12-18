@@ -7,6 +7,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using AdaptiveCards.Templating;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
@@ -53,7 +54,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
             var customers = client.GetAsync("api/SmartTradeApi/GetTotalOrdersByCustomer?customerId=30089").Result;
             if (customers.IsSuccessStatusCode)
-            { 
+            {
                 string responseString = customers.Content.ReadAsStringAsync().Result;
             }
 
@@ -66,14 +67,33 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         // This method is only called when a valid prompt response is parsed from the user's response to the ChoicePrompt.
         private async Task<DialogTurnResult> ShowCardStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
+
+
+            var templateJson = File.ReadAllText(Path.Combine(".", "Cards", "OrderHeader.json"));
+            var dataJson = File.ReadAllText(Path.Combine(".", "Cards", "TestData.json"));
+            var transformer = new AdaptiveTransformer();
+            //var cardJson = transformer.Transform(templateJson, dataJson);
+
             // Cards are sent as Attachments in the Bot Framework.
             // So we need to create a list of attachments for the reply activity.
-            var attachments = new List<Attachment>();
 
             // Reply to the activity we received with an activity.
+            //var adaptiveCardAttachment = new Attachment()
+            //{
+            //    ContentType = "application/vnd.microsoft.card.adaptive",
+            //    Content = templateJson,
+            //};
+
+            List<SalesOrderHeader> salesOrders = (List<SalesOrderHeader>)stepContext.Result;
+
+            var attachments = new List<Attachment>();
             var reply = MessageFactory.Attachment(attachments);
 
-            reply.Attachments.Add(Cards.CreateAdaptiveCardAttachment(Path.Combine(".", "Cards", "OrderHeader.json")));
+            for (int i = 0; i < salesOrders.Count; i++)
+            {
+                reply.Attachments.Add(Cards.GetOrderCard(salesOrders[i]).ToAttachment());
+            }
+            //reply.Attachments.Add(Cards.CreateAdaptiveCardAttachment(Path.Combine(".", "Cards", "OrderHeader.json")));
 
             // Send the card(s) to the user as an attachment to the activity
             await stepContext.Context.SendActivityAsync(reply, cancellationToken);

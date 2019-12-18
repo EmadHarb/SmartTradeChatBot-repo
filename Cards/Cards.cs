@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Bot.Schema;
 using Newtonsoft.Json;
+using NLQueryApp;
 
 namespace Microsoft.BotBuilderSamples
 {
@@ -33,6 +34,32 @@ namespace Microsoft.BotBuilderSamples
                 Content = JsonConvert.DeserializeObject(adaptiveCardJson),
             };
             return adaptiveCardAttachment;
+        }
+
+        public static ReceiptCard GetOrderCard(SalesOrderHeader salesOrder)
+        {
+            var receiptCard = new ReceiptCard
+            {
+                Title = salesOrder.CustomerID.ToString(),
+                Facts = new List<Fact> { new Fact("Order Number", salesOrder.SalesOrderNumber), new Fact("Order Date", salesOrder.OrderDate.ToString()) },
+                Tax = salesOrder.TaxAmt.ToString(),
+                Total = salesOrder.SubTotal.ToString(),
+                Items = new List<ReceiptItem>
+                {
+                    new ReceiptItem(
+                        image: new CardImage(url: "https://github.com/amido/azure-vector-icons/raw/master/renders/traffic-manager.png")),
+                },
+                Buttons = new List<CardAction>
+                {
+                    new CardAction(
+                        ActionTypes.OpenUrl,
+                        "Show Order",
+                        null,
+                        value: "http://smarttradewebapp.azurewebsites.net/Products"),
+                },
+            };
+
+            return receiptCard;
         }
 
         public static HeroCard GetHeroCard()
