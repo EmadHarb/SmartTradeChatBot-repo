@@ -19,6 +19,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
     public class ShowOrdersDialog : CancelAndHelpDialog
     {
         private const string UserStepMsgText = "The loged in user is not recognized!";
+        private string loggedCustomer = "30089";
 
         public ShowOrdersDialog()
             : base(nameof(ShowOrdersDialog))
@@ -52,13 +53,13 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         {
             HttpClient client = CallAPI();
 
-            var customers = client.GetAsync("api/SmartTradeApi/GetTotalOrdersByCustomer?customerId=30089").Result;
-            if (customers.IsSuccessStatusCode)
+            var result = client.GetAsync("api/SmartTradeApi/GetSalesByCustomerID?customerId=" + loggedCustomer).Result;
+            if (result.IsSuccessStatusCode)
             {
-                string responseString = customers.Content.ReadAsStringAsync().Result;
+                string responseString = result.Content.ReadAsStringAsync().Result;
             }
 
-            IEnumerable<SalesOrderHeader> orders = customers.Content.ReadAsAsync<IEnumerable<SalesOrderHeader>>().Result;
+            IEnumerable<SalesOrderHeader> orders = result.Content.ReadAsAsync<IEnumerable<SalesOrderHeader>>().Result;
 
             return await stepContext.NextAsync(orders, cancellationToken);
         }

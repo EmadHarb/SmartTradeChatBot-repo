@@ -3,3 +3,7 @@
 obj/**
 bin/**
 runtimes/**
+/.vs/CoreBot/v15/Server/sqlite3/db.lock
+/.vs/CoreBot/v15/Server/sqlite3/storage.ide
+/.vs/CoreBot/v15/Server/sqlite3/storage.ide-shm
+/.vs/CoreBot/v15/Server/sqlite3/storage.ide-wal

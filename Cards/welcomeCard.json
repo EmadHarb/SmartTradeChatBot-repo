@@ -26,15 +26,7 @@
       "maxLines": 0
     }
   ],
-  "actions": [
-    {
-      "type": "Action.Submit",
-      "title": "Show my Orders Total"
-    },
-    {
-      "type": "Action.Submit",
-      "title": "Show my Last Order"
-    },
+  "actions": [    
     {
       "type": "Action.OpenUrl",
       "title": "Show all products",

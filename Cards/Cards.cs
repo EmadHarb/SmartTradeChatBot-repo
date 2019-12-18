@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Bot.Schema;
@@ -40,10 +41,10 @@ namespace Microsoft.BotBuilderSamples
         {
             var receiptCard = new ReceiptCard
             {
-                Title = salesOrder.CustomerID.ToString(),
+                Title = "Customer ID: " + salesOrder.CustomerID.ToString(),
                 Facts = new List<Fact> { new Fact("Order Number", salesOrder.SalesOrderNumber), new Fact("Order Date", salesOrder.OrderDate.ToString()) },
-                Tax = salesOrder.TaxAmt.ToString(),
-                Total = salesOrder.SubTotal.ToString(),
+                Tax = string.Format("{0:C}", Convert.ToDecimal(salesOrder.TaxAmt.ToString())),
+                Total = string.Format("{0:C}", Convert.ToDecimal(salesOrder.SubTotal.ToString())),
                 Items = new List<ReceiptItem>
                 {
                     new ReceiptItem(
@@ -53,9 +54,10 @@ namespace Microsoft.BotBuilderSamples
                 {
                     new CardAction(
                         ActionTypes.OpenUrl,
-                        "Show Order",
+                        "Show Orders",
                         null,
-                        value: "http://smarttradewebapp.azurewebsites.net/Products"),
+                        value: "http://smarttradewebapp.azurewebsites.net/SalesOrders/GetSalesByCustomerID?customerId=" + salesOrder.CustomerID.ToString()),
+                        //value: "http://localhost:62449/SalesOrders/GetSalesByCustomerID?customerId=" + salesOrder.CustomerID.ToString()),
                 },
             };
 
